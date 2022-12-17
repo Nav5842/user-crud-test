@@ -42,7 +42,7 @@
                         <a class="btn btn-small btn-info btn-sm" href="{{ URL::to('users/' . $value->id . '/edit') }}">Edit User</a>
                     </div>
                     <div class="col-md-4">
-                        <form action="{{ route('users.destroy',$value->id) }}" method="Post">
+                        <form action="{{ URL::to('users.destroy',$value->id) }}" method="Post">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm">Delete</button>

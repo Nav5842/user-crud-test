@@ -69,7 +69,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+
+        return view('users.edit')->with('user', $user);
     }
 
     /**
@@ -81,7 +83,19 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'mobile_phone' => 'required|numeric|digits:10'
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->mobile_phone = $request->input('mobile_phone');
+        $user->save();
+        Session::flash('message', 'User Updated');
+        return Redirect::to('users');
     }
 
     /**
