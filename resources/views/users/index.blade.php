@@ -70,7 +70,7 @@
                     <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <td>ID</td>
+                                <td>User ID</td>
                                 <td>Name</td>
                                 <td>Email</td>
                                 <td>Mobile Phone</td>
